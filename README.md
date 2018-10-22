@@ -6,15 +6,10 @@
 1. `docker-compose run rails rails webpacker:install`
 1. `docker-compose stop`
 1. `sudo chown -R $USER:$USER .`
-1. Add following to config/database.yml
-
-```
-default: &default
-  host: db
-  username: postgres
-  password:
-```
-
+1. Add following under the `default:` key of config/database.yml
+    * `host: db`
+    * `username: postgres`
+    * `password:`
 1. `docker-compose run rails rails db:create`
 1. `sudo docker-compose build`
 1. `docker-compose up`
