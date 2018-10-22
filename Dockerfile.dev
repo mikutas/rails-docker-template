@@ -10,10 +10,9 @@ COPY --from=node /usr/local/bin/node /usr/local/bin/
 RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn && \
     ln -s /opt/yarn/bin/yarnpkg /usr/local/bin/yarnpkg
 
-ARG path=/approot
-RUN mkdir ${path}
-WORKDIR ${path}
-COPY ./Gemfile ${path}/Gemfile
-COPY ./Gemfile.lock ${path}/Gemfile.lock
-
+ARG appname=/appname
+RUN mkdir ${appname}
+WORKDIR ${appname}
+COPY ./Gemfile ${appname}
+COPY ./Gemfile.lock ${appname}
 RUN bundle install
